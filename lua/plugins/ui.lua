@@ -6,7 +6,7 @@ return {
       options = {
         icons_enabled = false,
         theme = "auto",
-        component_separators = { left = "⋮", right = "⋮"},
+        component_separators = { left = "\u{e621}", right = "\u{e621}"},
         section_separators = { left = "", right = ""},
         disabled_filetypes = {
           statusline = {},
@@ -27,7 +27,7 @@ return {
           {  
             "filename",
             symbols = {
-              modified = "*",
+              modified = "\u{ea71}",
               readonly = "[Read Only]",
               unnamed = "[No Name]",
               newfile = "[New]"
@@ -52,5 +52,29 @@ return {
       inactive_winbar = {},
       extensions = {}
     }
-  }
+  },
+  {
+    "folke/snacks.nvim",
+    opts = {
+      dashboard = {
+        preset = {
+          pick = function(cmd, opts)
+            return LazyVim.pick(cmd, opts)()
+          end,
+          header = [[
+    _/_/_/                      _/      _/  _/                 
+     _/      _/_/_/  _/_/_/    _/      _/      _/_/_/  _/_/    
+    _/    _/    _/  _/    _/  _/      _/  _/  _/    _/    _/   
+   _/    _/    _/  _/    _/    _/  _/    _/  _/    _/    _/    
+_/_/_/    _/_/_/  _/    _/      _/      _/  _/    _/    _/     
+]],
+          keys = {
+            { icon = "\u{ea7f}", key = "n", desc = "New File", action = ":ene | startinsert" },
+            { icon = "\u{eae6}", key = "l", desc = "Manage Lazy Plugins...", action = ":Lazy" },
+            { icon = "\u{ea76}", key = "q", desc = "Quit", action = ":qa" },
+          },
+        },
+      },
+    },
+  },
 }
